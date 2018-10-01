@@ -1,5 +1,6 @@
 import boto3
 import string
+
 from chalice import Chalice
 app = Chalice(app_name='mychaliceapp2')
 
@@ -11,6 +12,7 @@ def HitOrMiss(positionFiredAt):
     #never trust the input
     s3 = boto3.resource('s3')
     obj = s3.Object("battleship-ship-positions", "battleship_boardsize_game1.txt")
+
     boardsize = int(obj.get()['Body'].read().decode('utf-8'))
     if boardsize > 26:
         return {"boardsize invalid"}
@@ -39,10 +41,9 @@ def HitOrMiss(positionFiredAt):
     else:
         #print ("not valid")
         return{"Invalid input for target, too long"}
+
     # get the list of targetareas
     #positionOfShips = ("a1","a2","e6")
-   
-
     obj = s3.Object("battleship-ship-positions", "battleship_positions_game1.txt")
     positionOfShips = obj.get()['Body'].read().decode('utf-8')
     print (positionOfShips)

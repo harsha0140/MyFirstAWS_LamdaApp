@@ -7,6 +7,7 @@ from Battleship_HitMiss import HitOrMiss
 #Then it's reported as hit
 
 def test_Hit():
+
     assert HitOrMiss("e6") == {"Hit", 'e6'}
 
 #Given that no ship is present at location d4
