@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-import json
+
 from app import hello_name
     
 def test_name():
