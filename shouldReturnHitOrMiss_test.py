@@ -18,6 +18,9 @@ def test_Miss():
 def test_input_too_long():
     assert HitOrMiss("d333") == {"Invalid input for target, too long"}
     
+def test_input_too_short():
+    assert HitOrMiss("d") == {"Invalid input for target, too long"}
+    
 def test_input_outside_of_maxboardsize():
     assert HitOrMiss ("p27") == {"Invalid input for target"}
     
